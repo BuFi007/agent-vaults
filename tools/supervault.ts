@@ -37,7 +37,7 @@ const SUPERVAULT_ABI = [
 ];
 
 // Update to Avalanche mainnet
-const SUPERVAULT_ADDRESS = "0x85cbB40e56F19789012B0F1fE5d49c71148B99dC";
+const SUPERVAULT_ADDRESS = "0x50109a09aA3Ff67Ae594802468328e16bf85eb64";
 const AVALANCHE_RPC_URL = "https://api.avax.network/ext/bc/C/rpc";
 
 // Basic vault operations
