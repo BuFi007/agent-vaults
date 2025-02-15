@@ -1,4 +1,4 @@
-# VVault - AI-Powered DeFi Portfolio Manager
+#  BU VaultS - AI-Powered DeFi Portfolio Manager
 
 ## Overview
 VVault is an autonomous DeFi portfolio management system built on the Avalanche network, leveraging LangChain AI agents for intelligent allocation of USDC across various DeFi protocols including Aave, Balancer, and GoGoPool.
