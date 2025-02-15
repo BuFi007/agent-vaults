@@ -1,144 +1,94 @@
-#  BU Vaults - AI-Powered DeFi Portfolio Manager
+# SuperVault - AI-Powered DeFi Yield Optimizer
 
 ## Overview
-VVault is an autonomous DeFi portfolio management system built on the Avalanche network, leveraging LangChain AI agents for intelligent allocation of USDC across various DeFi protocols including Aave, Balancer, and GoGoPool.
+SuperVault is an autonomous DeFi yield optimization system built on Avalanche, using LangChain AI agents to intelligently manage USDC positions across various DeFi protocols, starting with Aave.
 
-## Features
-- **Autonomous Portfolio Management**: AI-driven rebalancing and optimization of DeFi positions
-- **Multi-Protocol Integration**: Seamless interaction with Aave lending, Balancer pools, and GoGoPool liquid staking
-- **Secure Wallet Architecture**: Implemented using secure key management and transaction signing
-- **USDC-Based**: All strategies denominated in USDC for stable value preservation
-- **Risk Management**: Built-in protection mechanisms and exposure limits
+## Key Features
+- **AI-Driven Yield Optimization**: Automated monitoring and rebalancing of positions
+- **Safe Transaction Management**: Uses Gnosis Safe for secure transaction execution
+- **Real-time APR Monitoring**: Tracks and compares yields across protocols
+- **Automated Rebalancing**: Moves funds between vault and protocols based on yield opportunities
+- **USDC-Focused**: Currently optimized for USDC yield management
 
-## Architecture
+## Technical Architecture
 
 ### Core Components
-1. **AI Agent System**
-   - LangChain-based decision engine
-   - Market analysis and strategy optimization
-   - Portfolio rebalancing logic
-   - Risk assessment modules
+1. **YieldOptimizer Agent**
+   - Built with LangChain and GPT-4
+   - Autonomous decision-making for yield optimization
+   - Periodic monitoring and rebalancing
+   - Real-time APR analysis
 
-2. **Protocol Integrations**
-   - Aave V3 lending/borrowing interface
-   - Balancer V2 liquidity management
-   - GoGoPool staking integration
-   - Avalanche C-Chain interaction layer
-
-3. **Secure Wallet Implementation**
+2. **Safe Integration**
+   - Secure transaction execution through Gnosis Safe
    - Multi-signature support
-   - Transaction approval framework
-   - Key management system
-   - Emergency withdrawal mechanisms
+   - Transaction batching capabilities
 
-## Installation
+3. **Protocol Integrations**
+   - Aave V3 on Avalanche
+   - APR monitoring and comparison
+   - Deposit and withdrawal automation
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/vvault.git
+## Setup
 
-# Install dependencies
-cd vvault
-npm install
+1. Environment Variables
 
-# Set up environment variables
-cp .env.example .env
-```
+bash
+AGENT_PRIVATE_KEY=your_private_key
+SAFE_ADDRESS=your_safe_address
+AVALANCHE_RPC_URL=your_rpc_url
 
-## Configuration
+2. Install Dependencies
 
-Create a `.env` file with the following parameters:
+bash
+npm start
 
-```
-AVALANCHE_RPC_URL=
-PRIVATE_KEY=
-WALLET_ADDRESS=
-AAVE_POOL_ADDRESS=
-BALANCER_VAULT_ADDRESS=
-GOGOPOOL_ADDRESS=
-AI_MODEL_KEY=
-```
 
-## Usage
+## How It Works
 
-```python
-# Initialize the AI agent
-from vvault.agent import VVaultAgent
-from vvault.wallet import SecureWallet
+1. **Monitoring**
+   - Checks vault balances every hour
+   - Fetches current APR rates from Aave
+   - Analyzes yield opportunities
 
-# Create wallet instance
-wallet = SecureWallet()
+2. **Optimization**
+   - Compares APR rates across protocols
+   - Identifies opportunities with >0.5% yield difference
+   - Executes deposits/withdrawals through Safe
 
-# Initialize agent with configurations
-agent = VVaultAgent(
-    wallet=wallet,
-    initial_allocation=1000_000_000,  # 1M USDC (6 decimals)
-    risk_level="moderate"
-)
+3. **Security**
+   - All transactions executed through Gnosis Safe
+   - Multi-step verification process
+   - Fail-safe mechanisms for transaction errors
 
-# Start autonomous management
-agent.start()
-```
+## Current Capabilities
+- Monitor USDC, USDT, and WAVAX positions
+- Fetch real-time APR data from Aave
+- Execute deposits and withdrawals through Safe
+- Automated hourly yield checks
+- Detailed transaction logging
 
-## Strategy Parameters
-
-The AI agent considers the following parameters for portfolio allocation:
-
-- Market volatility
-- Protocol TVL
-- APY opportunities
-- Gas costs
-- Risk exposure limits
-- Historical protocol performance
-
-## Security Considerations
-
-- Implement strict access controls
-- Regular security audits recommended
-- Monitor transaction limits
-- Enable emergency pause functionality
-- Keep private keys secure
-- Regular backup procedures
-
-## Development
-
-### Prerequisites
-- Node.js v16+
-- Python 3.8+
-- Avalanche network access
-- USDC tokens for testing
-
-### Testing
-
-```bash
-# Run test suite
-npm run test
-
-# Run specific protocol tests
-npm run test:aave
-npm run test:balancer
-npm run test:gogopool
-```
-
-## Monitoring
-
-The system provides real-time monitoring through:
-- Transaction logs
-- Portfolio performance metrics
-- Risk exposure alerts
-- Gas usage tracking
-- Protocol interaction history
+## Development Status
+- ✅ Safe integration
+- ✅ Aave V3 integration
+- ✅ APR monitoring
+- ✅ Automated deposits/withdrawals
+- 🔄 Additional protocol integrations (in progress)
+- 🔄 Advanced yield strategies (in progress)
 
 ## Contributing
-
 1. Fork the repository
 2. Create a feature branch
-3. Commit changes
-4. Submit pull request
-5. Undergo code review
+3. Submit a pull request
+
+## Security Considerations
+- Only use with trusted Safe configurations
+- Monitor transaction execution
+- Review automated decisions
+- Set appropriate gas limits
 
 ## License
 MIT License - See LICENSE file for details
 
 ## Disclaimer
-This software is experimental. Use at your own risk. Always verify the security of your DeFi interactions and maintain proper risk management practices.
+This is experimental software. Use at your own risk. Always verify DeFi interactions and maintain proper risk management practices.
